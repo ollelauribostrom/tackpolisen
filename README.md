@@ -3,10 +3,10 @@
 ### Endpoints
 | Method | Path                        | Parameters                | Body                        | Return                      |
 | ------ | --------------------------- | ------------------------- | --------------------------- | --------------------------- |
-| GET    | /api/tweets/:offset         | **offset**(optional): offsets search result by offset * limit            | --------------------------- | Array of whitelisted tweets |
-| GET    | /api/tweets/starred/:offset | **offset**(optional): offsets search result by offset * limit            | --------------------------- | Array of starred tweets     |
+| GET    | /api/tweets/:offset         | **offset**(optional): offsets search result by offset * limit            |  | Array of whitelisted tweets |
+| GET    | /api/tweets/starred/:offset | **offset**(optional): offsets search result by offset * limit            | | Array of starred tweets     |
 | POST   | /admin/tweets               |                           | **adminToken**(required): secret for access to admin-api, **limit**(required): How many to return, **offset**(optional): offsets search result by offset * limit, **filter**(optional): Filter object  | Array of all saved tweets fitting criteria   |
-| PATCH  | /admin/tweets/:id           | **adminToken**(required): secret for access to admin-api, **id**(required): Id of tweet to update | **status**(required): Updated status as object, ex `{ whitelisted: true, starred: true }` | Updated tweet (Object)      |
+| PATCH  | /admin/tweets/:id           | **id**(required): Id of tweet to update | **adminToken**(required): secret for access to admin-api, **status**(required): Updated status as object, ex ```{ whitelisted: true, starred: true }``` | Updated tweet (Object)      |
 
 
 ##### Currently available search filters
@@ -27,7 +27,7 @@ Used as: `filters: {"filters.lang": "en"}`
 - Start application: `npm run dev`
 
 ### Configuaration
-Projects config-file found in config/index.js reads from environment variables. The following is needed to get up and running:
+Projects config-file found in config/index.js reads from environment variables. The following environment variables is needed to get up and running, ex placed in .env-file:
 - ADMIN_TOKEN= {secret for access to admin api}
 - DEFAULT_LIMIT= {default limit for num of tweets returned}
 - CONSUMER_KEY = {twitter consumer key}
