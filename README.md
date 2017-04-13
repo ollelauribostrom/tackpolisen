@@ -4,7 +4,7 @@
 | Method | Path                        | Parameters                | Body                        | Return                      |
 | ------ | --------------------------- | ------------------------- | --------------------------- | --------------------------- |
 | GET    | /api/tweets/:offset         | **offset**(optional): offsets search result by offset * limit            |  | Array of whitelisted tweets |
-| GET    | /api/tweets/starred/:offset | **offset**(optional): offsets search result by offset * limit            | | Array of starred tweets     |
+| GET    | /api/starred/:offset        | **offset**(optional): offsets search result by offset * limit            | | Array of starred tweets     |
 | POST   | /admin/tweets               |                           | **adminToken**(required): secret for access to admin-api, **limit**(required): How many to return, **offset**(optional): offsets search result by offset * limit, **filter**(optional): Filter object  | Array of all saved tweets fitting criteria   |
 | PATCH  | /admin/tweets/:id           | **id**(required): Id of tweet to update | **adminToken**(required): secret for access to admin-api, **status**(required): Updated status as object, ex ```{ whitelisted: true, starred: true }``` | Updated tweet (Object)      |
 
@@ -48,3 +48,4 @@ What hashtags to track is specified as a string in: config/index.js (twitter.str
 - Automatically exclude tweets for certain user
 - Include tweet id in Mongoose schema
 - Set up Application Only based authentication instead of User based authentication
+- Caching?

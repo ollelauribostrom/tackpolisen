@@ -16,7 +16,7 @@ const defaultLimit  = config.defaultLimit;
 /**
  * ROUTE: /api/tweets
  */
-router.route('/tweets/:offset')
+router.route('/tweets/:offset?')
   .all((req, res, next) => next()) // Log here
   .get((req, res, next) => {
     Tweet.getWhitelisted(defaultLimit, req.params.offset)
@@ -25,9 +25,9 @@ router.route('/tweets/:offset')
   });
 
 /**
- * ROUTE: /api/tweets/starred
+ * ROUTE: /api/starred
  */
-router.route('/tweets/starred/:offset')
+router.route('/starred/:offset?')
   .all((req, res, next) => next()) // Log here
   .get((req, res, next) => {
     Tweet.getStarred(defaultLimit, req.params.offset)
