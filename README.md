@@ -20,6 +20,27 @@ filters: {
 ```
 Used as: `filters: {"filters.lang": "en"}`
 
+##### Example using fetch
+```
+fetch('/admin/tweets', {
+  method: 'POST',
+  body: JSON.stringify({
+    adminToken: 'supersecretstuff',
+    limit: 100,
+    offset: 100,
+    filter: {
+      "filters.lang": "en",
+      "filters.whitelisted": false,
+      "filters.starred": false
+    }
+  }),
+  headers: new Headers({ 'Content-Type': 'application/json' })
+})
+  .then(tweets => handleTweets(tweets))
+  .catch(error => handleError(error));
+```
+
+
 ### Run local 
 - Make sure mongodb is installed
 - Install dependencies: `npm install`
